@@ -19,18 +19,20 @@ public class Robot extends TimedRobot {
    * initialization code.
    */
 
-  Joystick m_controller = new Joystick(0);
+   // joystick, driver, and shooter moved to  robot container
+  // Joystick m_controller = new Joystick(0);
   // Shooter and the intake both are designed to run at the same time and are therefore in the same class, "Shooter"
-  Shooter m_shooter = new Shooter();
-  Drivetrain m_drivetrain = new Drivetrain();
+  // Shooter m_shooter = new Shooter();
+  // Drivetrain m_drivetrain = new Drivetrain();
 
   @Override
   public void robotInit() {
+    m_robotContainer = new RobotContainer();
   }
 
   @Override
   public void robotPeriodic() {
-
+    CommandScheduler.getInstance().run();
   }
 
   @Override
@@ -55,7 +57,6 @@ public class Robot extends TimedRobot {
     //m_shooter.update(m_controller.getRawButton(0));
 
     m_shooter.update(m_controller.getRawButton(1));
-
   }
 
   @Override
@@ -76,3 +77,4 @@ public class Robot extends TimedRobot {
   @Override
   public void simulationPeriodic() {}
 }
+zzz
